@@ -10,7 +10,7 @@ if(!isset($_SESSION['user_id'])){
 
 $user_id = $_SESSION['user_id'];
 
-// GET USER EVENTS (JOIN QUERY)
+
 $sql = "SELECT events.title, events.description, events.event_date, registrations.registered_at
         FROM registrations
         JOIN events ON registrations.event_id = events.id
