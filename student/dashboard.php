@@ -48,7 +48,7 @@ if(isset($_POST['register_event'])){
     }
 }
 
-/* FETCH EVENTS */
+
 $query = "SELECT * FROM events ORDER BY event_date ASC";
 $result = mysqli_query($conn, $query);
 
