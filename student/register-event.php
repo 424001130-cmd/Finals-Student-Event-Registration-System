@@ -13,6 +13,7 @@ $event_id = $_POST['event_id'];
 $sql = "INSERT INTO registrations (user_id, event_id)
         VALUES ('$user_id', '$event_id')";
 
+// magat
 if(mysqli_query($conn, $sql)){
     header("Location: my-events.php");
     exit();
