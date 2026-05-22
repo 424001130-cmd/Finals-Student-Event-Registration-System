@@ -16,12 +16,10 @@ if(isset($_POST['login'])){
 
         if(password_verify($password, $user['password'])){
 
-            // SET SESSION
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['name'] = $user['name'];
 
-            // REDIRECT BASED ON ROLE
             if($user['role'] == 'admin'){
                 header("Location: ../admin/events/events.php");
                 exit();
