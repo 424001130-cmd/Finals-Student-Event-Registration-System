@@ -14,7 +14,7 @@ if($_SESSION['role'] != 'student'){
     exit();
 }
 
-/* HANDLE REGISTER EVENT */
+/* HANDLE REGISTER EVENT */ 
 if(isset($_POST['register_event'])){
 
     $user_id = $_SESSION['user_id'];
