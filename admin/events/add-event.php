@@ -4,21 +4,20 @@ ini_set('display_errors', 1);
 
 session_start();
 include __DIR__ . '/../../config/db.php'; 
-// ⚠️ CHANGE THIS PATH if your db.php is not inside /config/
 
-/* CHECK LOGIN */
+//login
 if(!isset($_SESSION['user_id'])){
     header("Location: ../../auth/login.php");
     exit();
 }
 
-/* CHECK ADMIN ROLE */
+//admin role
 if($_SESSION['role'] != 'admin'){
     header("Location: ../../student/dashboard.php");
     exit();
 }
 
-/* ADD EVENT */
+//add event
 if(isset($_POST['add_event'])){
 
     $title = $_POST['title'];
@@ -31,12 +30,12 @@ if(isset($_POST['add_event'])){
 
     $result = mysqli_query($conn, $query);
 
-    /* IMPORTANT: SHOW ERROR IF INSERT FAILS */
+    //error message if insertion fails
     if(!$result){
         die("Insert Failed: " . mysqli_error($conn));
     }
 
-    /* FIXED REDIRECT (SAFE PATH) */
+    // FIXED REDIRECT
     header("Location: ./events.php");
     exit();
 }
